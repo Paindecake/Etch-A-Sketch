@@ -1,0 +1,10 @@
+h1 {
+	text-align: center;
+}
+#grid {
+	display: grid;
+}
+
+#grid div {
+	border: solid 2px black;
+}

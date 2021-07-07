@@ -19,10 +19,11 @@ h1 {
 	width: 30em;
 	height: 30em;
 	margin: auto;
+	background-color: white !important;
+	border: solid 1px rgba(0, 0, 0, 0.571);
 }
 
 #grid div {
-	border: solid 1px black;
 	transition: background-color 550ms;
 }
 

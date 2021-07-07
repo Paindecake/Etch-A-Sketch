@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const grid = document.getElementById("grid");
+let color = "#000000";
 
 function createGrid(gridNumber) {
 	let gridArea = gridNumber * gridNumber;
@@ -13,37 +14,31 @@ function createGrid(gridNumber) {
 }
 createGrid(10);
 
-function sketchOnClick() {
-	grid.addEventListener("click", (e) => {
-		e.target.classList.toggle("sketch");
-		console.log(e.target);
-	});
-}
-// sketchOnClick();
-
-function sketchOnHover() {
-	grid.addEventListener("mouseover", (e) => {
-		e.target.classList.add("sketch");
-		// console.log(e.target);
-	});
+function activateSketch(e) {
+	e.target.style.backgroundColor = color;
 }
 
-sketchOnHover();
-
-function sketchOnHoverOut() {
-	grid.addEventListener("mouseover", (e) => {
-		e.target.classList.remove("sketch");
-	});
+activePen = false;
+function togglePen() {
+	if (!activePen) {
+		grid.addEventListener("mouseover", activateSketch);
+		activePen = true;
+	} else {
+		grid.removeEventListener("mouseover", activateSketch);
+		activePen = false;
+	}
 }
 
-// sketchOnHoverOut();
+grid.addEventListener("click", () => {
+	togglePen();
+});
 
 const clearButton = document.getElementById("clear");
 
 clearButton.onclick = function() {
 	let allDiv = grid.querySelectorAll("div");
 	allDiv.forEach((e) => {
-		e.classList.remove("sketch");
+		e.style.backgroundColor = "#ffffff";
 	});
 };
 
@@ -71,3 +66,12 @@ sizeButton.onclick = function() {
 		createGrid(newSize);
 	}
 };
+
+let colorPicker = document.getElementById("colorPicker");
+colorPicker.value = color;
+colorPicker.addEventListener("input", useColor, false);
+colorPicker.addEventListener("change", useColor, false);
+
+function useColor(event) {
+	color = event.target.value;
+}

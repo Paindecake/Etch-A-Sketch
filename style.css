@@ -2,6 +2,18 @@ h1 {
 	text-align: center;
 	padding-bottom: 2em;
 }
+
+#control {
+	display: grid;
+	justify-items: center;
+	justify-content: center;
+	align-content: center;
+	padding-bottom: 2em;
+	width: 30em;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: auto;
+}
+
 #grid {
 	display: grid;
 	width: 30em;

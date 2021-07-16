@@ -1,15 +1,24 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	background-color: #3c3836;
+	color: #d5c4a1;
+	text-align: center;
 }
 
 h1 {
-	text-align: center;
-	padding-bottom: 2em;
-	padding-top: 2em;
+	padding-bottom: 1em;
+	padding-top: 1em;
 	font-size: 32px;
-	color: #d5c4a1;
 	text-shadow: 0 0 20px #d5c4a1;
+}
+
+.description {
+	padding-bottom: 2em;
+}
+
+.copyright {
+	padding-top: 1.5em;
+	text-shadow: 0 0 10px #d5c4a1;
 }
 
 #control {
@@ -20,7 +29,31 @@ h1 {
 	padding-bottom: 2em;
 	width: 30em;
 	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: "clear none color" "10x 20x 30x";
+	grid-gap: 10%;
 	margin: auto;
+}
+
+#clear {
+	grid-area: clear;
+}
+
+#none {
+	grid-area: none;
+}
+#colorPicker {
+	grid-area: color;
+	height: 40px;
+}
+#size10 {
+	grid-area: 10x;
+}
+#size20 {
+	grid-area: 30x;
+}
+#size30 {
+	grid-area: 60x;
 }
 
 #grid {
@@ -28,16 +61,48 @@ h1 {
 	width: 30em;
 	height: 30em;
 	margin: auto;
+	border: solid 1px #d5c4a1;
 	background-color: white !important;
 	box-shadow: 0 0em 1.5em -0.1em #d5c4a1;
+	transition: all 0.25s;
+}
+
+#grid:hover {
+	cursor: pointer;
 }
 
 #grid div {
-	transition: background-color 550ms;
+	border: solid 1px #d5c4a1;
+	transition: background-color 200ms;
+}
+
+#grid div:hover {
+	border: solid 2px #72ff3e;
 }
 
 .sketch {
 	background-color: black;
+}
+
+.btnsize {
+	padding: 20px 10px;
+	width: 60px;
+	border: solid 1px #d5c4a1;
+	border-radius: 50%;
+	background-color: #504945;
+	color: #d5c4a1;
+	box-shadow: 0 0em 1.5em -0.1em #d5c4a1;
+	text-shadow: 0 0 7px #d5c4a1;
+	transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, text-shadow 0.25s, transform 0.25s;
+}
+
+.btnsize:hover {
+	cursor: pointer;
+	box-shadow: 0 0em 2.5em -0.1em #8ec07c;
+	text-shadow: 0 0 7px #8ec07c;
+	border-color: #8ec07c;
+	color: #8ec07c;
+	transform: translateY(-0.25em);
 }
 
 .btn {
@@ -58,4 +123,17 @@ h1 {
 	border-color: #8ec07c;
 	color: #8ec07c;
 	transform: translateY(-0.25em);
+}
+
+.active {
+	border-color: #8ec07c !important;
+	box-shadow: 0 0em 2em -0.1em #8ec07c !important;
+	transition: all 0.25s;
+}
+
+.activeBtn {
+	box-shadow: 0 0em 2.5em -0.1em #8ec07c !important;
+	text-shadow: 0 0 7px #8ec07c !important;
+	border-color: #8ec07c !important;
+	color: #8ec07c !important;
 }

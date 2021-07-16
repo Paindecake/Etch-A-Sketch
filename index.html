@@ -9,16 +9,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="container">
+    <header>
         <h1>Etch A Sketch</h1>
+    </header>
+    <main>
+        <div class="description">
+            <p>Click inside the grid once to toggle the pen.
+                <br>
+                To toggle off the pen click again inside the grid.
+            </p>
+        </div>
         <div id="control">
             <button id="clear" class="btn">Clear Grid</button>
-            <button id="size" class="btn">Change Size</button>
+            <!-- <button id="size" class="btn">Change Size</button> -->
+            <p id="none"></p>
             <input type="color" name="colorPicker" id="colorPicker" class="btn">
+            <button id="size10" class="btnsize">10x10</button>
+            <button id="size20" class="btnsize">20x20</button>
+            <button id="size30" class="btnsize">30x30</button>
         </div>  
         <div id="grid">
         </div>
-    </div>
+    </main>
+    <p class="copyright">&#127850 Made by Paindecake &#127850</p>
     <script src="app.js"></script>
 </body>
 </html>
